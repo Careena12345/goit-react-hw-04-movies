@@ -18,13 +18,16 @@ export default class Cast extends Component {
     return (
       <>
         {cast && (
-          <ul>
+          <ul className="CastList">
             {cast &&
               cast.cast &&
               cast.cast.map(e => (
                 <li key={e.cast_id}>
                   <img
+                    className="CastImage"
                     alt="img"
+                    width='100'
+                    height='150'
                     src={`https://image.tmdb.org/t/p/w500${e.profile_path}`}
                   />
                   <p>{e.character}</p>

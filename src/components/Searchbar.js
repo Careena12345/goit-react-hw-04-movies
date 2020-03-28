@@ -19,12 +19,14 @@ export default class Searchbar extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="SearchBox">
         <input
           type="text"
+          placeholder="Enter movie"
           value={this.state.value}
           onChange={this.handleChange}
         />
+        <button type="submit">Search</button>
       </form>
     );
   }

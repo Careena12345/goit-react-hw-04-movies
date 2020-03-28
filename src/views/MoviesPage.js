@@ -43,7 +43,7 @@ export default class MoviesPage extends Component {
         <Searchbar onSubmit={this.handleQuery} />
         <>
           {movies.length > 0 && (
-            <ul>
+            <ul className="MovieList">
               {movies.map(movie => (
                 <li key={movie.id}>
                   <Link

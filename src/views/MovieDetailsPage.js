@@ -35,42 +35,49 @@ export default class MovieDetailsPage extends Component {
 
   render() {
     const { movie } = this.state;
-    const { match } = this.props;
+    //const { match } = this.props;
 
     return (
       <div>
         <button type="button" onClick={this.handleBack}>
-          back
+          Go back
         </button>
         <br></br>
 
         {this.state.movie && (
-          <>
+          <><div className='MovieInfo'>
             <img
+              className="MovieImage"
               alt="img"
+              width='240'
+              height='360'
               src={`https://image.tmdb.org/t/p/w500${this.state.movie.poster_path}`}
             />
-            <div>
-              <h3>{this.state.movie.title}</h3>
+            <div className="MovieDescription">
+              <h3 className="MovieTitle">{this.state.movie.title}</h3>
               <p>User score:{this.state.movie.popularity} %</p>
-              <h4>Overview</h4>
-              {this.state.movie.overview}
-              <h4>Genres</h4>
-              <ul>
+              <h2>Overview</h2>
+              <p>{this.state.movie.overview}</p>
+              <h3>Genres</h3>
+              <ul className="GanresList">
                 {this.state.movie.genres.map(genre => (
                   <li key={genre.id}>{genre.name}</li>
                 ))}
-              </ul>
-
-              <p>Additional Information</p>
-
-              <NavLink to={`/movies/${movie.id}/cast`}> Cast </NavLink>
-              <br></br>
-              <NavLink to={`/movies/${movie.id}/reviews`}> Reviews </NavLink>
-
+              </ul></div></div>
+              <div className='AdditionalInfo'>
+                <h4>Additional information</h4>
+                <ul className="AdditionalInfoList">
+                  <li>
+                    <NavLink to={`/movies/${movie.id}/cast`}> Cast </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={`/movies/${movie.id}/reviews`}>
+                      Reviews
+                    </NavLink>
+                  </li>
+                </ul></div>
               <Route path="/movies/:movieId/cast" component={Cast} />
               <Route path="/movies/:movieId/reviews" component={Reviews} />
-            </div>
           </>
         )}
       </div>

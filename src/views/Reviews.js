@@ -17,16 +17,14 @@ export default class Reviews extends Component {
     console.log(this.state.reviews);
     return (
       <>
-        <h2>Reviews </h2>
-
         {reviews && (
-          <ul>
+          <ul className="ReviewsList">
             {reviews &&
               reviews.results &&
               reviews.results.map(e => (
                 <li key={e.id}>
-                  <p>{e.aurthor}</p>
-                  {e.content}
+                  <h2>{e.author}</h2>
+                  <p>{e.content}</p>
                 </li>
               ))}
           </ul>
